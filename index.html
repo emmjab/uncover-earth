@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style type="text/css">
+            html, body { height: 100%; margin: 0; padding: 0;}
+            #map-canvas {
+                width: 500px;
+                height: 400px;
+                opacity: 1;
+                /*background-color: #CCC;*/
+                
+            }
+            </style>
+        <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=">
+            </script>
+        <script type="text/javascript">
+            function initialize() {
+                var mapOptions = {
+                    center: { lat: 40.7833, lng: -73.9667},
+                    zoom: 15
+                    
+                };
+                
+                var map = new google.maps.Map(document.getElementById('map-canvas'),
+                                              mapOptions);
+                                              
+                var populationOptions = {
+                    strokeColor: '#FF0000',
+                    strokeOpacity: 1,
+                    strokeWeight: 2,
+                    fillColor: '#FF0000',
+                    fillOpacity: .3,
+                    map: map,
+                    center: new google.maps.LatLng(40.7833, -73.9667),
+                    radius: 20
+                 };
+                 cityCircle = new google.maps.Circle(populationOptions);
+            }
+        google.maps.event.addDomListener(window, 'load', initialize);
+            </script>
+    </head>
+    <body>
+        <div id="map-canvas"></div>
+    </body>
+</html>
